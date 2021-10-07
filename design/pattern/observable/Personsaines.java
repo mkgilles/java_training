@@ -5,16 +5,21 @@ import java.util.List;
 
 import design.pattern.observer.Contact;
 
-public class Personsaines extends Personnes {
+public class Personsaines extends Personnes implements Observable {
+
     private String pseudo;
     private boolean contamine;
     private List<Contact> relations = new ArrayList<>();
 
-  
+    protected Personsaines(String pseudo) {
+        super(pseudo);
+        // TODO Auto-generated constructor stub
+    }
+
     @Override
     public void addPerson(Contact c) {
         this.relations.add(c);
-        
+
     }
 
     public boolean isContamine() {
@@ -23,7 +28,7 @@ public class Personsaines extends Personnes {
 
     public void setContamine(boolean contamine) {
         this.contamine = contamine;
-        //this.notif
+        // this.notif
     }
 
     public String getPseudo() {
@@ -32,27 +37,16 @@ public class Personsaines extends Personnes {
 
     @Override
     public void removePerson(Contact c) {
-      for Contact c : relations
-    
+        this.relations.remove(c);
+
     }
 
-    public Personsaines() {
-    }
-
- 
     @Override
     public void notifyPerson() {
-       for Contact c : relations{
+        for Contact c : relations {
             c.update(this);
-       }
-        
+        }
+
     }
 
-    @Override
-    public void update(Personnes person) {
-        
-        
-    }
-
-      
 }

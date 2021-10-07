@@ -5,7 +5,7 @@ import java.util.List;
 
 import design.pattern.observer.Contact;
 
-public abstract class Personnes implements Observable{
+public class Personnes {
 
     private String pseudo;
     private boolean contamine;
