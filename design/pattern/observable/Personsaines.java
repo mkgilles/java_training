@@ -7,14 +7,15 @@ import design.pattern.observer.Contact;
 
 public class Personsaines extends Personnes implements Observable {
 
+    protected Personsaines(String pseudo, boolean contamine) {
+        super(pseudo, contamine);
+        
+    }
+
     private String pseudo;
     private boolean contamine;
     private List<Contact> relations = new ArrayList<>();
 
-    protected Personsaines(String pseudo) {
-        super(pseudo);
-        // TODO Auto-generated constructor stub
-    }
 
     @Override
     public void addPerson(Contact c) {

@@ -1,0 +1,37 @@
+package design.pattern.observable;
+
+import design.pattern.observer.Membre;
+public class Personne implements Membre, Observable{
+
+    private String pseudo;
+    private String etat;
+    Personne (String pseudo){
+        this.pseudo = pseudo;
+    }
+
+    public void etatContamtination(String etat)){
+        this.etat = etat;
+        notifyPerson();
+    }
+
+    private void notifyPerson() {
+        
+    }
+
+    public void addRelation(Groupe g) {
+        g.addPerson(this);
+        System.out.println("Le membre "+this.pseudo+"a été ajouté au groupe "+g.getName()+"\n");
+        //logger.log("Le membre "+this.pseudo+"a été ajouté au groupe "+g.getName()+"\n");
+         
+     }
+    
+     public void removeRelation(Groupe g) {
+        g.removePerson(this);
+        System.out.println("Le membre "+this.pseudo+"a été supprimé du groupe "+g.getName()+"\n");
+         
+     }
+   
+    public void update(boolean state) {
+            System.out.println("\n"+ this.pseudo +" est contaminé.\n");
+
+    }
